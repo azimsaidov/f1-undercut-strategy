@@ -104,6 +104,14 @@ export default function App() {
           <Dashboard result={result} onLapChange={handleLapChange} lapLoading={lapLoading} />
         </section>
       )}
+
+      {/* Footer */}
+      <footer className="mt-auto border-t border-zinc-800 pb-6 pt-8 text-center text-xs text-zinc-500">
+        Built by <span className="font-medium text-zinc-300">Azim Saidov</span> &middot; Powered by{' '}
+        <a href="https://openf1.org" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 transition">
+          OpenF1
+        </a>
+      </footer>
     </div>
   );
 }

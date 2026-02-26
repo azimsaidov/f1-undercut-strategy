@@ -4,6 +4,18 @@ interface Props {
   probability: number;
 }
 
+function barColor(p: number): string {
+  if (p <= 30) return '#ef4444';
+  if (p <= 60) return '#facc15';
+  return '#22c55e';
+}
+
+function numberColor(p: number): string {
+  if (p <= 30) return '#fca5a5';
+  if (p <= 60) return '#fef08a';
+  return '#86efac';
+}
+
 export default function UndercutGauge({ probability }: Props) {
   return (
     <Plot
@@ -12,14 +24,14 @@ export default function UndercutGauge({ probability }: Props) {
           type: 'indicator',
           mode: 'gauge+number',
           value: probability,
-          number: { suffix: '%', font: { color: '#e4e4e7', size: 42 } },
+          number: { suffix: '%', font: { color: numberColor(probability), size: 42 } },
           gauge: {
             axis: {
               range: [0, 100],
               tickcolor: '#71717a',
               tickfont: { color: '#71717a' },
             },
-            bar: { color: '#e10600', thickness: 0.6 },
+            bar: { color: barColor(probability), thickness: 0.6 },
             bgcolor: '#1e1e2e',
             bordercolor: '#2a2a3e',
             steps: [
